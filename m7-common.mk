@@ -29,7 +29,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.rc \
     init.qcom.usb.rc \
-    init.target.rc \
     ueventd.qcom.rc
 
 # Recovery
@@ -161,19 +160,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Common build properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.nfc.fw_download=true \
     debug.nfc.fw_boot_download=false \
+    debug.nfc.fw_download=true \
     debug.nfc.se=true \
-    ro.nfc.port=I2C \
-    ro.sf.lcd_density=480 \
     persist.timed.enable=true \
     persist.gps.qmienabled=true \
+    rild.libargs="-d /dev/smd0" \
+    rild.libpath=/system/lib/libril-qc-qmi-1.so \
     ro.baseband.arch=mdm \
     ro.cam.hw.version=m7 \
     ro.cwm.forbid_format="/firmware/mdm,/firmware/q6" \
     ro.cwm.forbid_mount="/firmware/mdm,/firmware/q6" \
     ro.input.noresample=1 \
+    ro.nfc.port=I2C \
     ro.opengles.version=196608 \
+    ro.sf.lcd_density=480 \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.call_ring.delay=3000 \
     ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
