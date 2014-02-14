@@ -56,6 +56,9 @@ COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# GPS
+BOARD_HAVE_NEW_QC_GPS := true
+
 # Graphics
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 HAVE_ADRENO_SOURCE := false
@@ -63,8 +66,8 @@ HAVE_ADRENO_SOURCE := false
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# We have the new GPS driver
-BOARD_HAVE_NEW_QC_GPS := true
+# RIL
+BOARD_PROVIDES_LIBRIL := true
 
 # Tuning
 BOARD_HARDWARE_CLASS := device/htc/m7-common/cmhw
@@ -84,16 +87,9 @@ WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/firmware/fw_bcm4335_p2p_b0.bin"
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1946156032
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 27917287424
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Custom Recovery
-ifeq ($(TARGET_DEVICE),m7spr)
-TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.spr
-else
-TARGET_RECOVERY_FSTAB := device/htc/m7-common/rootdir/etc/fstab.qcom.gsm
-endif
+# Recovery
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
