@@ -180,7 +180,9 @@ etc/firmware/vidc_1080p.fw
 # Irda
 bin/cir_fw_update
 etc/cir.img
+lib/libhtcirinterface_jni.so
 lib/hw/consumerir.default.so
+priv-app/HTC_CIR.apk
 
 # Keystore
 vendor/firmware/keymaster/keymaster.b00
